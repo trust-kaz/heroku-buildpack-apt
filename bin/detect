@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
-if [ -f $1/Aptfile ]; then
-  echo "Apt"
-  exit 0
-else
-  echo "Could not find an 'Aptfile'! Please ensure it exists and is checked into Git." >&2
-  exit 1
-fi
+APT_STAGES=$APT_STAGES || "Aptfile"
+for stage in ${$APT_STAGES}; do
+  if [ -f $1/$stage ]; then
+    echo "$stage found"
+  else
+    echo "Could not find an '$stage'! Please ensure it exists and is checked into Git." >&2
+    exit 1
+  fi
+done
