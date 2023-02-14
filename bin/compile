@@ -9,6 +9,6 @@ set -eo pipefail
 
 APT_STAGES="${APT_STAGES:-Aptfile}"
 
-for stage in ${$APT_STAGES}; do
+for stage in ${APT_STAGES}; do
   bash ./compile-stage $1 $2 "$stage"
 done
