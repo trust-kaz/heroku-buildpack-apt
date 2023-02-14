@@ -3,7 +3,7 @@
 
 APT_STAGES="${APT_STAGES:-Aptfile}"
 
-for stage in ${$APT_STAGES}; do
+for stage in ${APT_STAGES}; do
   if [ -f $1/$stage ]; then
     echo "$stage found"
   else
